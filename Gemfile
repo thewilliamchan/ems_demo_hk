@@ -46,6 +46,10 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+end
+
+group :production do
+  # Use pg as the database in production environment
   gem 'pg', '~> 1.1.3'
 end
 
