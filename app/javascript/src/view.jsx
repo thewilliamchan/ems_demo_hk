@@ -14,7 +14,7 @@ class Demo extends React.Component{
   WebExtendView(id) {
     ScarabQueue.push(['view', id]);
     ScarabQueue.push(['go']);
-    console.log(view command sent);
+    console.log('view command sent');
   }
 
   render () {
