@@ -11,9 +11,10 @@ class Demo extends React.Component{
     image: 'https://drive.google.com/uc?id=1Jh3zJQKnAAFpEkubFVpU3OUhVTLPghng'
   }
 
-  WebExtendView = (id) => {
+  WebExtendView(id) {
     ScarabQueue.push(['view', id]);
     ScarabQueue.push(['go']);
+    console.log(view command sent);
   }
 
   render () {
@@ -26,7 +27,7 @@ class Demo extends React.Component{
           <h5>${price}</h5>
           <img src={image} alt={title} width="200" />
           <div>
-            <button className="btn btn-dark" onClick={this.WebExtendView(id)}>Send View</button>
+            <button className="btn btn-dark" onClick={() => this.WebExtendView(id)}>Send View</button>
           </div>
         </div>
       </Layout>
