@@ -5,7 +5,7 @@ const path = require('path')
 const customConfig = {
   resolve: {
     alias: {
-      '@src': path.resolve(_dirname, '..', '..', 'app/javascript/src')
+      '@src': path.resolve(__dirname, '..', '..', 'app/javascript/src')
     }
   }
 }
