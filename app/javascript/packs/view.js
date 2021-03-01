@@ -1,2 +1,2 @@
 // view.js
-import '../src/view';
+import '@src/view';
