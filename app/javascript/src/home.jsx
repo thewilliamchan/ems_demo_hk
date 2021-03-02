@@ -5,16 +5,8 @@ import Layout from './layout';
 
 class Home extends React.Component {
   SendITM() {
-    // itm_source_h
-    ga('set', 'dimension1', 'emsdemohk');
-    // itm_medium_h
-    ga('set', 'dimension2', 'banner');
-    // itm_campaign_h
-    ga('set', 'dimension3', 'new-products-2021');
-    // itm_content_h
-    ga('set', 'dimension4', 'small-banner');
-    // itm_term_h
-    ga('set', 'dimension5', 'new-products');
+    // send ITM values to Google Analytics
+    gtag('event', 'view_item', {'itm_source_h': 'emsdemohk', 'itm_medium_h': 'banner', 'itm_campaign_h': 'new-products-2021', 'itm_content_h': 'small-banner', 'itm_term_h': 'new-products'});
     console.log("itm data sent");
   }
 

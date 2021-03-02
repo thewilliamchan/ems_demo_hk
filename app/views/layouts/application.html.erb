@@ -25,7 +25,9 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'UA-190887660-1');
+      gtag('config', 'UA-190887660-1', {
+        'custom_map': {'dimension1': 'itm_source_h', 'dimension2': 'itm_medium_h', 'dimension3': 'itm_campaign_h', 'dimension4': 'itm_content_h', 'dimension5': 'itm_term_h'}
+      });
     </script>
   </head>
 
