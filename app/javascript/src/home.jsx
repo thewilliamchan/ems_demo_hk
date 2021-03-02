@@ -27,7 +27,7 @@ class Home extends React.Component {
           <h1>Home page</h1>
           <h4>Internal ad A</h4>
           <a onClick={() => this.sendITM_A()} href="/view">
-            <img src="https://drive.google.com/uc?id=1uhpdpC2ugvJsMo-iszMse4pGmgn0BZBg" alt="internal-ad-a" width="200" className="imageA" />
+            <img src="https://drive.google.com/uc?id=1uhpdpC2ugvJsMo-iszMse4pGmgn0BZBg" alt="internal-ad-a" width="200" />
           </a>
           <br />
           <br />
