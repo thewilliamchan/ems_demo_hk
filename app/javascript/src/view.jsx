@@ -8,7 +8,7 @@ class Demo extends React.Component{
     id: 'ems-demo-hk-1',
     title: 'Tshirt',
     price: 100,
-    image: 'https://doc-0o-9o-docs.googleusercontent.com/docs/securesc/q12n5n9dh0glpu3l2mee1arv2nd5tc64/qrkq783e1vh3kklksnbjltvtqqhmfock/1614664725000/08929955126707880999/03277970015415550772/1Jh3zJQKnAAFpEkubFVpU3OUhVTLPghng?authuser=0'
+    image: 'https://drive.google.com/uc?id=1Jh3zJQKnAAFpEkubFVpU3OUhVTLPghng'
   }
 
   WebExtendView(id) {
