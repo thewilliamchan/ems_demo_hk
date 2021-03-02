@@ -15,6 +15,7 @@ class Home extends React.Component {
     ga('set', 'dimension4', 'small-banner');
     // itm_term_h
     ga('set', 'dimension5', 'new-products');
+    console.log("itm data sent");
   }
 
   render() {
