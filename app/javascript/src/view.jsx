@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Layout from './layout';
+import qs from 'qs';
 
 class Demo extends React.Component{
   state = {
@@ -11,14 +12,31 @@ class Demo extends React.Component{
     image: 'https://drive.google.com/uc?id=1Jh3zJQKnAAFpEkubFVpU3OUhVTLPghng'
   }
 
+  componentDidMount() {
+    if(this.getUrlParams()) {
+      // send ITM values to Google Analytics for web channel
+      gtag('event', 'view_item', {'itm_source_h': 'emsdemohk', 'itm_medium_h': 'webchannel', 'itm_campaign_h': Object.values(this.getUrlParams())[0], 'itm_content_h': Object.values(this.getUrlParams())[1], 'itm_term_h': Object.values(this.getUrlParams())[2]});
+      console.log("itm data sent");
+      console.log(Object.values(this.getUrlParams())[0]);
+      console.log(Object.values(this.getUrlParams())[1]);
+      console.log(Object.values(this.getUrlParams())[2]);
+    }
+  }
+
   webExtendView(id) {
     ScarabQueue.push(['view', id]);
     ScarabQueue.push(['go']);
     console.log('view command sent');
   }
 
+  getUrlParams() {
+    const param = qs.parse(window.location.href.split('?')[1]);
+    return param;
+  }
+
   render () {
     const { id, title, price, image } = this.state;
+
     return (
       <Layout>
         <div className="container">
@@ -37,7 +55,7 @@ class Demo extends React.Component{
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Demo />,
+    <Demo/>,
     document.body.appendChild(document.createElement('div'))
   )
 })
