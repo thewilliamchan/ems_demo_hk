@@ -10,7 +10,7 @@ class Home extends React.Component {
         //if(document.getElementById('wps_popup').length > 0) {
         //  console.log('checked');
         //}
-        if (document.getElementById('wps_popup').querySelectorAll("div[data-wps-ad:'wps_squVEmn-wk.1--1']")) {
+        if (document.getElementById('wps_popup').querySelectorAll("div[data-wps-ad='wps_squVEmn-wk.1--1']")) {
           console.log('checked');
         }
       }
