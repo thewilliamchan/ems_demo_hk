@@ -7,9 +7,10 @@ class Home extends React.Component {
   componentDidMount() {
     this.timer = setInterval(
       () => {
-        if(document.getElementById('wps_popup').length > 0) {
-          console.log('checked');
-        }
+        //if(document.getElementById('wps_popup').length > 0) {
+        //  console.log('checked');
+        //}
+        console.log(document.getElementById('wps_popup'));
       }
       , 1000);
   }
