@@ -7,11 +7,11 @@ class Home extends React.Component {
   componentDidMount() {
     this.timer = setInterval(
       () => {
-        //if(document.getElementById('wps_popup').length > 0) {
-        //  console.log('checked');
-        //}
         if (document.getElementById('wps_popup').querySelectorAll("div[data-wps-ad='wps_squVEmn-wk.1--1']")) {
-          console.log('checked');
+          gtag('event', 'impression', {
+            'event_category': 'web-channel-popup',
+            'event_label': 'wps_squVEmn-wk.1--1'
+          });
         }
       }
       , 1000);
