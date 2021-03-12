@@ -15,7 +15,7 @@ class Demo extends React.Component{
   componentDidMount() {
     if(this.getUrlParams()) {
       // send ITM values to Google Analytics for web channel
-      gtag('event', 'view_item', {'itm_source_h': 'emsdemohk', 'itm_medium_h': 'webchannel', 'itm_campaign_h': Object.values(this.getUrlParams())[0], 'itm_content_h': Object.values(this.getUrlParams())[1], 'itm_term_h': Object.values(this.getUrlParams())[2]});
+      //gtag('event', 'view_item', {'itm_source_h': 'emsdemohk', 'itm_medium_h': 'webchannel', 'itm_campaign_h': Object.values(this.getUrlParams())[0], 'itm_content_h': Object.values(this.getUrlParams())[1], 'itm_term_h': Object.values(this.getUrlParams())[2]});
       console.log("itm data sent");
       console.log(Object.values(this.getUrlParams())[0]);
       console.log(Object.values(this.getUrlParams())[1]);
