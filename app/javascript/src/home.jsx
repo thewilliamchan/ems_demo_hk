@@ -12,6 +12,8 @@ class Home extends React.Component {
             'event_category': 'web-channel-popup',
             'event_label': 'wps_squVEmn-wk.1--1'
           });
+          console.log('ga event sent');
+          clearInterval(this.timer);
         }
       }
       , 1000);
