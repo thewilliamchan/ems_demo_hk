@@ -4,6 +4,16 @@ import ReactDOM from 'react-dom';
 import Layout from './layout';
 
 class Home extends React.Component {
+  componentDidMount() {
+    this.timer = setInterval(
+      () => {
+        if(document.getElementById('wps_popup').length > 0) {
+          console.log('checked');
+        }
+      }
+      , 1000);
+  }
+
   sendITM_A() {
     // send ITM values to Google Analytics for ad A
     //gtag('event', 'view_item', {'itm_source_h': 'emsdemohk', 'itm_medium_h': 'banner', 'itm_campaign_h': 'new-products-2021-A', 'itm_content_h': 'small-banner', 'itm_term_h': 'new-products'});
