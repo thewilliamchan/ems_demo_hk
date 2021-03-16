@@ -68,7 +68,7 @@ class Home extends React.Component {
   render() {
     return (
       <Layout>
-        <div className='container' data-wps-popup-content-body="" data-wps-ad="overlay1">
+        <div className='container'>
           <h1>Home page</h1>
           <h4>Internal ad A</h4>
           <a onClick={() => this.sendITM_A()} href="/view">
@@ -76,14 +76,10 @@ class Home extends React.Component {
           </a>
           <br />
           <br />
-          <div data-wps-ad="ribbon1" data-wps-ribbon-content-body=""></div>
-          <div data-wps-ad="ribbon2" data-wps-ribbon-content-body=""></div>
           <h4>Internal ad B</h4>
           <a onClick={() => this.sendITM_B()} href="/view">
             <img src='https://drive.google.com/uc?id=12gO5oML-4UaJ5wDuWUEbSqT8_aN5IXsZ' alt='internal-ad-b' width='200' />
           </a>
-          <div data-wps-ad="embed1" data-wps-embed-content-body=""></div>
-          <div data-wps-ad="embed2" data-wps-embed-content-body=""></div>
         </div>
       </Layout>
     )
