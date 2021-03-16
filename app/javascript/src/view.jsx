@@ -18,7 +18,7 @@ class Demo extends React.Component{
       console.log('web channel click event sent');
       gtag('event', 'click', {
         'event_category': this.getUrlParams()['event_category'],
-        'event_value': this.getUrlParams()['event_value']
+        'event_label': this.getUrlParams()['event_label']
       });
     }
   }
