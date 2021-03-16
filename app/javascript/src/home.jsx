@@ -5,17 +5,20 @@ import Layout from './layout';
 
 class Home extends React.Component {
   componentDidMount() {
-    this.overlayTimer = setInterval(
+    this.popupTimer = setInterval(
       () => {
-        const overlay = document.querySelectorAll('div[data-wps-ad][data-wps-popup-content-body]');
-        if (overlay.length > 0) {
-          console.log('overlay');
-          gtag('event', 'impression', {
-            'event_category': 'web-channel-popup',
-            'event_label': overlay[0].getAttribute('data-wps-ad')
-          });
+        const popup = document.querySelectorAll('div[data-wps-ad][data-wps-popup-content-body]');
+        if (popup.length > 0) {
+          const popupHidden = document.querySelector('#wps_popup').getAttribute('data-wps-popup');
+          if (popupHidden !== 'hidden') {
+            console.log('popup');
+            gtag('event', 'impression', {
+              'event_category': 'web-channel-popup',
+              'event_label': overlay[0].getAttribute('data-wps-ad')
+            });
+            clearInterval(this.popupTimer);
+          }
         }
-        clearInterval(this.overlayTimer);
       }
     , 1000);
 
@@ -30,10 +33,16 @@ class Home extends React.Component {
               'event_label': ribbon[0].getAttribute('data-wps-ad')
             });
           }
+          clearInterval(this.ribbonTimer);
         }
-        clearInterval(this.ribbonTimer);
       }
     , 1000);
+    setTimeout(
+      () => {
+        clearInterval(this.ribbonTimer);
+        console.log('ribbon timer timeout');
+      }
+    , 60000);
 
     this.embedTimer = setInterval(
       () => {
@@ -46,10 +55,16 @@ class Home extends React.Component {
               'event_label': embed[0].getAttribute('data-wps-ad')
             });
           }
+          clearInterval(this.embedTimer);
         }
-        clearInterval(this.embedTimer);
       }
     , 1000);
+    setTimeout(
+      () => {
+        clearInterval(this.embedTimer);
+        console.log('embed timer timeout');
+      }
+    , 60000);
 
   }
 
