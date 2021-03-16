@@ -14,7 +14,7 @@ class Home extends React.Component {
             console.log('popup');
             gtag('event', 'impression', {
               'event_category': 'web-channel-popup',
-              'event_label': overlay[0].getAttribute('data-wps-ad')
+              'event_label': popup[0].getAttribute('data-wps-ad')
             });
             clearInterval(this.popupTimer);
           }
