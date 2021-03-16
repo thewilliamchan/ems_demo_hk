@@ -14,12 +14,12 @@ class Demo extends React.Component{
 
   componentDidMount() {
     if(this.getUrlParams()) {
-      // send ITM values to Google Analytics for web channel
-      //gtag('event', 'view_item', {'itm_source_h': 'emsdemohk', 'itm_medium_h': 'webchannel', 'itm_campaign_h': Object.values(this.getUrlParams())[0], 'itm_content_h': Object.values(this.getUrlParams())[1], 'itm_term_h': Object.values(this.getUrlParams())[2]});
-      console.log("itm data sent");
-      console.log(Object.values(this.getUrlParams())[0]);
-      console.log(Object.values(this.getUrlParams())[1]);
-      console.log(Object.values(this.getUrlParams())[2]);
+      // send event to Google Analytics for web channel
+      console.log('web channel click event sent');
+      gtag('event', 'click', {
+        'event_category': this.getUrlParams()['event_category'],
+        'event_campaign': this.getUrlParams()['event_campaign']
+      });
     }
   }
 
@@ -39,13 +39,13 @@ class Demo extends React.Component{
 
     return (
       <Layout>
-        <div className="container">
+        <div className='container'>
           <h1>Products</h1>
           <h4>{title}</h4>
           <h5>${price}</h5>
-          <img src={image} alt={title} width="200" />
+          <img src={image} alt={title} width='200' />
           <div>
-            <button className="btn btn-dark" onClick={() => this.webExtendView(id)}>Send View</button>
+            <button className='btn btn-dark' onClick={() => this.webExtendView(id)}>Send View</button>
           </div>
         </div>
       </Layout>

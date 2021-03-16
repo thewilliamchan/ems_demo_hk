@@ -5,18 +5,52 @@ import Layout from './layout';
 
 class Home extends React.Component {
   componentDidMount() {
-    this.timer = setInterval(
+    this.overlayTimer = setInterval(
       () => {
-        if (document.getElementById('wps_popup').querySelectorAll("div[data-wps-ad='wps_squVEmn-wk.1--1']")) {
+        const overlay = document.querySelectorAll('div[data-wps-ad][data-wps-popup-content-body]');
+        if (overlay.length > 0) {
+          console.log('overlay');
           gtag('event', 'impression', {
             'event_category': 'web-channel-popup',
-            'event_label': 'wps_squVEmn-wk.1--1'
+            'event_label': overlay[0].getAttribute('data-wps-ad')
           });
-          console.log('ga event sent');
-          clearInterval(this.timer);
         }
+        clearInterval(this.overlayTimer);
       }
-      , 1000);
+    , 1000);
+
+    this.ribbonTimer = setInterval(
+      () => {
+        const ribbon = document.querySelectorAll('div[data-wps-ad][data-wps-ribbon-content-body]');
+        if (ribbon.length > 0) {
+          for (var i = 0; i < ribbon.length; i++) {
+            console.log('ribbon');
+            gtag('event', 'impression', {
+              'event_category': 'web-channel-ribbon',
+              'event_label': ribbon[0].getAttribute('data-wps-ad')
+            });
+          }
+        }
+        clearInterval(this.ribbonTimer);
+      }
+    , 1000);
+
+    this.embedTimer = setInterval(
+      () => {
+        const embed = document.querySelectorAll('div[data-wps-ad][data-wps-embed-content-body]');
+        if (embed.length > 0) {
+          for (var i = 0; i < embed.length; i++) {
+            console.log('embed');
+            gtag('event', 'impression', {
+              'event_category': 'web-channel-embed',
+              'event_label': embed[0].getAttribute('data-wps-ad')
+            });
+          }
+        }
+        clearInterval(this.embedTimer);
+      }
+    , 1000);
+
   }
 
   sendITM_A() {
@@ -34,18 +68,22 @@ class Home extends React.Component {
   render() {
     return (
       <Layout>
-        <div className="container">
+        <div className='container' data-wps-popup-content-body="" data-wps-ad="overlay1">
           <h1>Home page</h1>
           <h4>Internal ad A</h4>
           <a onClick={() => this.sendITM_A()} href="/view">
-            <img src="https://drive.google.com/uc?id=1uhpdpC2ugvJsMo-iszMse4pGmgn0BZBg" alt="internal-ad-a" width="200" />
+            <img src='https://drive.google.com/uc?id=1uhpdpC2ugvJsMo-iszMse4pGmgn0BZBg' alt='internal-ad-a' width='200' />
           </a>
           <br />
           <br />
+          <div data-wps-ad="ribbon1" data-wps-ribbon-content-body=""></div>
+          <div data-wps-ad="ribbon2" data-wps-ribbon-content-body=""></div>
           <h4>Internal ad B</h4>
           <a onClick={() => this.sendITM_B()} href="/view">
-            <img src="https://drive.google.com/uc?id=12gO5oML-4UaJ5wDuWUEbSqT8_aN5IXsZ" alt="internal-ad-b" width="200" />
+            <img src='https://drive.google.com/uc?id=12gO5oML-4UaJ5wDuWUEbSqT8_aN5IXsZ' alt='internal-ad-b' width='200' />
           </a>
+          <div data-wps-ad="embed1" data-wps-embed-content-body=""></div>
+          <div data-wps-ad="embed2" data-wps-embed-content-body=""></div>
         </div>
       </Layout>
     )
